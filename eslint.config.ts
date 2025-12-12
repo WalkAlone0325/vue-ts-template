@@ -1,5 +1,5 @@
 import { globalIgnores } from 'eslint/config'
-import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript'
+import { defineConfigWithVueTs, vueTsConfigs, configureVueProject } from '@vue/eslint-config-typescript'
 import pluginVue from 'eslint-plugin-vue'
 import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
 
@@ -7,6 +7,7 @@ import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
 // import { configureVueProject } from '@vue/eslint-config-typescript'
 // configureVueProject({ scriptLangs: ['ts', 'tsx'] })
 // More info at https://github.com/vuejs/eslint-config-typescript/#advanced-setup
+configureVueProject({ scriptLangs: ['ts', 'tsx'] })
 
 export default defineConfigWithVueTs(
   {
@@ -19,4 +20,20 @@ export default defineConfigWithVueTs(
   pluginVue.configs['flat/essential'],
   vueTsConfigs.recommended,
   skipFormatting,
+  {
+    rules: {
+      '@typescript-eslint/no-empty-function': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
+      '@typescript-eslint/no-this-alias': 'off',
+      // vue
+      'vue/multi-word-component-names': 'off',
+      'vue/valid-define-props': 'off',
+      'vue/no-v-model-argument': 'off',
+      'prefer-rest-params': 'off',
+      // 允许使用空Object类型 {}
+      '@typescript-eslint/no-empty-object-type': 'off',
+      '@typescript-eslint/no-unused-expressions': 'off'
+    }
+  }
 )

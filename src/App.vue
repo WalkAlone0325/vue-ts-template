@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import useRootApp from '@/hooks'
+
+const rootApp = useRootApp()
+console.log('Root App:', rootApp.parseTime('20251201'))
+
+const { proxy } = getCurrentInstance()
+console.log('🚀:>> ', proxy.parseTime('20251201'))
 </script>
 
 <template>
