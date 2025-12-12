@@ -4,6 +4,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 import createAutoImport from './auto-import'
 import createComponents from './components'
 import createCompression from './compression'
+import createUnocss from './unocss'
 import type { PluginOption } from 'vite'
 
 export default (viteEnv: Record<string, string>, isBuild = false): PluginOption[] => {
@@ -14,6 +15,7 @@ export default (viteEnv: Record<string, string>, isBuild = false): PluginOption[
     vueDevTools(),
     createAutoImport(),
     createComponents(),
-    createCompression(viteEnv)
+    createCompression(viteEnv),
+    createUnocss(),
   ]
 }
