@@ -2,12 +2,19 @@
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 import useRootApp from '@/hooks'
+import { useCounterStore } from '@/store'
 
+// 测试全局 use 方法
 const rootApp = useRootApp()
 console.log('Root App:', rootApp.parseTime('20251201'))
 
+// 测试全局属性
 const { proxy } = getCurrentInstance()
 console.log('🚀:>> ', proxy.parseTime('20251201'))
+
+// 测试 store
+const counterStore = useCounterStore()
+console.log('🚀:>> ', counterStore)
 </script>
 
 <template>
