@@ -32,7 +32,8 @@ export default defineConfig(({ mode, command }) => {
     css: {
       preprocessorOptions: {
         scss: {
-          api: 'modern-compiler'
+          api: 'modern' as any,
+          silenceDeprecations: ['legacy-js-api']
         }
       },
       postcss: {
